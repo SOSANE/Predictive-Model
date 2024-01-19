@@ -49,7 +49,7 @@ def train_model(X, Y):
 st.sidebar.header('Settings')
 
 #User input: Add multiple companies
-selected_stocks = st.sidebar.multiselect('Select Ticker Symbols:', ['AAPL', 'AMZN', 'MSFT', 'GOOGL', 'TSLA', 'JPM', 'V', 'DIS', 'IBM', 'INTC', 'CSCO', 'C', 'CVX', 'PFE', 'KO', 'WMT', '^GSPC'])
+selected_stocks = st.sidebar.multiselect('Select Ticker Symbols:', ['AAPL', 'AMZN', 'MSFT', 'GOOGL', 'TSLA', 'JPM', 'DIS', 'IBM', 'INTC', 'CSCO', 'C', 'CVX', 'PFE', 'KO', 'WMT', '^GSPC'])
 
 #User input: Date range selector
 start_date = st.sidebar.date_input('Select Start Date:', pd.to_datetime('2020-01-01'))
