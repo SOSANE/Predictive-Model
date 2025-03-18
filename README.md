@@ -2,6 +2,8 @@
 
 This repository provides an interactive stock prediction dashboard that helps visualizing historical data prices and predictions, using Yahoo Finance API's data and Random Forrest algorithm to train the model. This dashboard is designed to be user-friendly and interactive.
 
+https://random-forrest-predictive-model.streamlit.app/
+
 ## 📹 Video demo
 [first-prediction-model.webm](https://github.com/user-attachments/assets/d28cc811-51ae-46b3-92ff-f0955dd6d415)
 
