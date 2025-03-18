@@ -1,21 +1,15 @@
-from sklearn import impute
 import yfinance as yf
 import matplotlib.pyplot as plt 
 import matplotlib.dates as mdates
-import pandas as pd 
-from sklearn.model_selection import train_test_split
-from sklearn import metrics
-from sklearn.linear_model import LinearRegression
+import pandas as pd
 import streamlit as st
-import altair as alt
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
-import numpy as np 
 
 # Set page configuration
 st.set_page_config(
     page_title="Stock Price Prediction Dashboard",
-    page_icon="📈",  # Use any stock-related emoji here
+    page_icon="📈", 
     layout="wide",  
 )
 
@@ -46,14 +40,20 @@ def train_model(X, Y):
     return model
 
 #Sidebar
-st.sidebar.header('Settings')
+st.sidebar.header('⚙️ Settings')
+st.sidebar.write("`Created by:`")
+linkedin_url = "https://www.linkedin.com/in/sosane-mahamoud-houssein/"
+st.sidebar.markdown(f'<a href="{linkedin_url}" target="_blank" style="text-decoration: none; color: inherit;"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25" height="25" style="vertical-align: middle; margin-right: 10px;">`Sosane Mahamoud Houssein`</a>', unsafe_allow_html=True)
+
+website_url = "https://sosane.github.io/sosane-portfolio/"
+st.sidebar.markdown(f'<a href="{website_url}" target="_blank" style="text-decoration: none; color: inherit;">`Sosane\'s portfolio`</a>', unsafe_allow_html=True)
 
 #User input: Add multiple companies
 selected_stocks = st.sidebar.multiselect('Select Ticker Symbols:', ['AAPL', 'AMZN', 'MSFT', 'GOOGL', 'TSLA', 'JPM', 'DIS', 'IBM', 'INTC', 'CSCO', 'C', 'CVX', 'PFE', 'KO', 'WMT', '^GSPC'])
 
 #User input: Date range selector
-start_date = st.sidebar.date_input('Select Start Date:', pd.to_datetime('2020-01-01'))
-end_date = st.sidebar.date_input('Select End Date:', pd.to_datetime('2022-01-01'))
+start_date = st.sidebar.date_input('Select Start Date:', pd.to_datetime('2022-01-01'))
+end_date = st.sidebar.date_input('Select End Date:', pd.to_datetime('2025-01-01'))
 
 #User input: Prediction horizon
 prediction_horizon = st.sidebar.slider('Select Prediction Horizon (Days):', 1, 30, 7)
@@ -78,7 +78,7 @@ for stock in selected_stocks:
 #Train a machine learning model on the combined dataset
 if selected_stocks:
     lagged_features_all = create_features(combined_data[selected_stocks], lag=5)
-    
+
     target_company = selected_stocks[0]  # Using the first company as a target variable
     target_variable = combined_data[target_company].shift(-1)
 

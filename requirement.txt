@@ -3,6 +3,5 @@ numpy
 yfinance
 sklearn
 matplotlib
-altair
 seaborn
 pandas
