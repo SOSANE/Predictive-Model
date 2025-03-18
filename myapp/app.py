@@ -13,8 +13,6 @@ st.set_page_config(
     layout="wide",  
 )
 
-
-
 def get_data(ticker, start_date, end_date):
     """Function to get stock data"""
     data = yf.download(ticker, start=start_date, end=end_date)
@@ -45,9 +43,6 @@ st.sidebar.write("`Created by:`")
 linkedin_url = "https://www.linkedin.com/in/sosane-mahamoud-houssein/"
 st.sidebar.markdown(f'<a href="{linkedin_url}" target="_blank" style="text-decoration: none; color: inherit;"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25" height="25" style="vertical-align: middle; margin-right: 10px;">`Sosane Mahamoud Houssein`</a>', unsafe_allow_html=True)
 
-website_url = "https://sosane.github.io/sosane-portfolio/"
-st.sidebar.markdown(f'<a href="{website_url}" target="_blank" style="text-decoration: none; color: inherit;">`Sosane\'s portfolio`</a>', unsafe_allow_html=True)
-
 #User input: Add multiple companies
 selected_stocks = st.sidebar.multiselect('Select Ticker Symbols:', ['AAPL', 'AMZN', 'MSFT', 'GOOGL', 'TSLA', 'JPM', 'DIS', 'IBM', 'INTC', 'CSCO', 'C', 'CVX', 'PFE', 'KO', 'WMT', '^GSPC'])
 
@@ -57,6 +52,10 @@ end_date = st.sidebar.date_input('Select End Date:', pd.to_datetime('2025-01-01'
 
 #User input: Prediction horizon
 prediction_horizon = st.sidebar.slider('Select Prediction Horizon (Days):', 1, 30, 7)
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("### My Portfolio")
+st.sidebar.link_button("Visit My Portfolio", "https://sosane.github.io/sosane-portfolio/")
 
 #Display historical stock prices for selected companies
 st.subheader('Historical Stock Prices')
