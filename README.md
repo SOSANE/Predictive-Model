@@ -1,4 +1,4 @@
-# Predictive Models Interface for Stocks | Time Series Analysis
+# Predictive Model Interface for Stocks | Time Series Analysis
 
 This repository provides an interactive stock prediction dashboard that helps visualizing historical data prices and predictions, using Yahoo Finance API's data and Random Forrest algorithm to train the model. This dashboard is designed to be user-friendly and interactive.
 
